@@ -12,10 +12,31 @@ import PaymentPanel from '../components/PaymentPanel';
 import Decorations from '../components/Decorations';
 
 function VersionDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {
+  const [selectedUrl, setSelectedUrl] = useState<string | null>(null);
   const versions = [
     { name: 'USB_Halloween avec base', url: 'https://buvette-halloween.vercel.app/', desc: 'Version avec synchronisation base de données' },
     { name: 'USB_Halloween sans base', url: 'https://usb-halloween-off.onrender.com/', desc: 'Version statique locale' },
   ];
+
+  if (selectedUrl) {
+    return (
+      <Dialog open={open} onOpenChange={(v) => { if (!v) setSelectedUrl(null); onOpenChange(v); }}>
+        <DialogContent className="sm:max-w-sm">
+          <DialogHeader>
+            <DialogTitle>QR Code</DialogTitle>
+          </DialogHeader>
+          <div className="flex flex-col items-center py-4">
+            <img
+              src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(selectedUrl)}`}
+              alt="QR Code"
+              className="rounded-lg border"
+            />
+            <p className="mt-3 text-sm text-muted-foreground text-center break-all">{selectedUrl}</p>
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
@@ -25,16 +46,14 @@ function VersionDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (v
         </DialogHeader>
         <div className="space-y-3 py-4">
           {versions.map((v) => (
-            <a
+            <button
               key={v.url}
-              href={v.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block rounded-xl border-2 border-border p-4 transition-colors hover:border-primary hover:bg-primary/5"
+              onClick={() => setSelectedUrl(v.url)}
+              className="block w-full rounded-xl border-2 border-border p-4 text-left transition-colors hover:border-primary hover:bg-primary/5"
             >
               <div className="font-semibold text-foreground">{v.name}</div>
               <div className="mt-1 text-sm text-muted-foreground">{v.desc}</div>
-            </a>
+            </button>
           ))}
         </div>
       </DialogContent>
