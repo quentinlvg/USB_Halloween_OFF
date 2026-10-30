@@ -2,7 +2,7 @@ services:
   - type: web
     name: caisse-halloween
     env: static
-    buildCommand: cd apps/application-de-caisse-du-club-de-football && yarn install && yarn build
+    buildCommand: cd apps/application-de-caisse-du-club-de-football && npm install && npm run build
     publishPath: apps/application-de-caisse-du-club-de-football/dist
     headers:
       - path: /*
