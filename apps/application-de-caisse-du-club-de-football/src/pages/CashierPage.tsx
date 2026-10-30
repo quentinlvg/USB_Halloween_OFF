@@ -1,9 +1,9 @@
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Settings } from 'lucide-react';
+import { Settings, QrCode } from 'lucide-react';
 import {
   AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
 } from '@project/components/ui/alert-dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@project/components/ui/dialog';
 import { useConfig } from '../lib/ConfigContext';
 import ProductButton from '../components/ProductButton';
 import ProductTile from '../components/ProductTile';
@@ -11,11 +11,43 @@ import ProductStrip from '../components/ProductStrip';
 import PaymentPanel from '../components/PaymentPanel';
 import Decorations from '../components/Decorations';
 
+function VersionDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (v: boolean) => void }) {
+  const versions = [
+    { name: 'USB_Halloween avec base', url: 'https://buvette-halloween.vercel.app/', desc: 'Version avec synchronisation base de données' },
+    { name: 'USB_Halloween sans base', url: 'https://usb-halloween-off.onrender.com/', desc: 'Version statique locale' },
+  ];
+
+  return (
+    <Dialog open={open} onOpenChange={onOpenChange}>
+      <DialogContent className="sm:max-w-md">
+        <DialogHeader>
+          <DialogTitle>Choisir la version</DialogTitle>
+        </DialogHeader>
+        <div className="space-y-3 py-4">
+          {versions.map((v) => (
+            <a
+              key={v.url}
+              href={v.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-xl border-2 border-border p-4 transition-colors hover:border-primary hover:bg-primary/5"
+            >
+              <div className="font-semibold text-foreground">{v.name}</div>
+              <div className="mt-1 text-sm text-muted-foreground">{v.desc}</div>
+            </a>
+          ))}
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 export default function CashierPage() {
   const { config } = useConfig();
   const [counts, setCounts] = useState<Record<string, number>>({});
   const [received, setReceived] = useState('');
   const [confirm, setConfirm] = useState(false);
+  const [showVersions, setShowVersions] = useState(false);
   const zoom = config.theme.zoom ?? 1;
   const layout = config.theme.layout ?? 'list';
 
@@ -34,9 +66,9 @@ export default function CashierPage() {
             : <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-2xl shadow-md">⚽</span>}
         </button>
         <h1 className="font-title min-w-0 flex-1 truncate text-xl font-bold text-primary sm:text-2xl">{config.theme.clubName}</h1>
-        <Link to="/admin" className="flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground" aria-label="Administration">
-          <Settings className="h-5 w-5" />
-        </Link>
+        <button onClick={() => setShowVersions(true)} className="flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground" aria-label="Versions">
+          <QrCode className="h-5 w-5" />
+        </button>
       </header>
 
       <main className="flex-1 overflow-y-auto px-3 pb-3 pt-1">
@@ -106,6 +138,7 @@ export default function CashierPage() {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+      <VersionDialog open={showVersions} onOpenChange={setShowVersions} />
     </div>
   );
 }
