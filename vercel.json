@@ -1,0 +1,11 @@
+{
+  "installCommand": "yarn install --frozen-lockfile",
+  "buildCommand": "yarn workspace @project/application-de-caisse-du-club-de-football build",
+  "outputDirectory": "apps/application-de-caisse-du-club-de-football/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

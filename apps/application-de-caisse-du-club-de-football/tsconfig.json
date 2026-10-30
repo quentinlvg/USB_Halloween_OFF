@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    }
+  ],
+  "compilerOptions": {
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@app": [
+        "./src/App.tsx"
+      ],
+      "@project/*": [
+  "../../packages/*"
+]
+    },
+    "module": "ESNext",
+    "moduleResolution": "bundler"
+  }
+}

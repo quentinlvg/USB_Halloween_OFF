@@ -1,0 +1,12 @@
+{
+  "name": "application-de-caisse-du-club-de-football",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "automations/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "typecheck": "yarn workspace @project/application-de-caisse-du-club-de-football typecheck"
+  }
+}

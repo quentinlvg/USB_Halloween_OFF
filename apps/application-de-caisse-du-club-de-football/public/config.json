@@ -1,0 +1,42 @@
+{
+  "version": 327,
+  "categories": [
+    { "id": "bieres", "name": "Bières & apéritifs", "emoji": "🍺", "color": null },
+    { "id": "spiritueux", "name": "Whiskys & spiritueux", "emoji": "🥃", "color": null },
+    { "id": "vins", "name": "Vins", "emoji": "🍷", "color": null },
+    { "id": "soft", "name": "Soft", "emoji": "🥤", "color": null },
+    { "id": "snacks", "name": "Snacks", "emoji": "🥪", "color": null }
+  ],
+  "products": [
+    { "id": "xsvpubem", "name": "Bière blonde", "price": 250, "emoji": "🍻", "categoryId": "bieres", "imageUrl": "/images/biere-blonde.webp" },
+    { "id": "0tlbii6d", "name": "Bière rouge", "price": 300, "emoji": "🍺", "categoryId": "bieres", "imageUrl": "/images/biere-rouge.webp" },
+    { "id": "m8dem00c", "name": "Picon bière", "price": 300, "emoji": "🍺", "categoryId": "bieres", "imageUrl": "/images/picon-biere.webp" },
+    { "id": "gaobl0a3", "name": "Ricard", "price": 250, "emoji": "🥛", "categoryId": "bieres", "imageUrl": "/images/ricard.webp" },
+    { "id": "nuserpt8", "name": "Whisky Coca", "price": 300, "emoji": "🥃", "categoryId": "spiritueux", "imageUrl": "/images/whisky-coca.webp" },
+    { "id": "a2t61x6o", "name": "Whisky", "price": 250, "emoji": "🥃", "categoryId": "spiritueux", "imageUrl": "/images/whisky.webp" },
+    { "id": "mpucbqsr", "name": "Get 27", "price": 250, "emoji": "🌿", "categoryId": "spiritueux", "imageUrl": "/images/get.webp" },
+    { "id": "jr4pk9ya", "name": "Baileys", "price": 250, "emoji": "☕", "categoryId": "spiritueux", "imageUrl": "/images/baileys.webp" },
+    { "id": "al2ypvz3", "name": "Vin blanc", "price": 250, "emoji": "🥂", "categoryId": "vins", "imageUrl": "/images/vin-blanc.webp" },
+    { "id": "0bzoa547", "name": "Vin rosé", "price": 250, "emoji": "🌸", "categoryId": "vins", "imageUrl": "/images/vin-rose.webp" },
+    { "id": "d65d3csp", "name": "Pétillant", "price": 250, "emoji": "🍾", "categoryId": "vins", "imageUrl": "/images/vin-petillant.webp" },
+    { "id": "xxdto1xy", "name": "Coca", "price": 200, "emoji": "🥤", "categoryId": "soft", "imageUrl": "/images/coca.webp" },
+    { "id": "u9kb563r", "name": "Oasis", "price": 200, "emoji": "🍊", "categoryId": "soft", "imageUrl": "/images/oasis.webp" },
+    { "id": "ud0souko", "name": "Perrier", "price": 200, "emoji": "💧", "categoryId": "soft", "imageUrl": "/images/perrier.webp" },
+    { "id": "dtv3f2g9", "name": "Croque-monsieur", "price": 200, "emoji": "🥪", "categoryId": "snacks", "imageUrl": "/images/croque.webp" },
+    { "id": "je4s8wzv", "name": "Chips", "price": 100, "emoji": "🥔", "categoryId": "snacks", "imageUrl": "/images/chips.webp" },
+    { "id": "8q5hwxzl", "name": "Kit-Kat / Twix / Snickers", "price": 150, "emoji": "🍫", "categoryId": "snacks", "imageUrl": "" }
+  ],
+  "theme": {
+    "preset": "sombre",
+    "effect": "halloween",
+    "font": "creepster",
+    "clubName": "Soirée HALLOWEEN",
+    "logoUrl": "/images/usb.webp",
+    "bgImageUrl": "/images/fond.webp",
+    "bgImageOpacity": 0.21,
+    "decorations": true,
+    "overrides": {},
+    "zoom": 0.8,
+    "layout": "strip"
+  }
+}

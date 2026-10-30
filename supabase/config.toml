@@ -1,0 +1,19 @@
+project_id = "usb-halloween"
+
+[functions.get-config]
+verify_jwt = false
+
+[functions.claim-admin]
+verify_jwt = false
+
+[functions.save-config]
+verify_jwt = false
+
+[functions.set-admin-pin]
+verify_jwt = false
+
+[functions.unlock-admin]
+verify_jwt = false
+
+[functions.upload-image]
+verify_jwt = false
